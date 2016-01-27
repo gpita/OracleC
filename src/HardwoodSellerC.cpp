@@ -10,39 +10,32 @@
 using namespace std;
 
 int main() {
-	cout
-			<< "This is an empty main method"
-			<< endl;
-	return 0;
-}
-
-WoodItem wood = new WoodItem();
-string buyerName, address, date, amountStr;
-int amount;
-
-/*
- * Method to read the input file
- */
-void readInputFile(string inputFilePath) 
-{
 	WoodItem wood = new WoodItem();
-	string buyerName, address, date, amountStr;
-	int amount;
-
+	std::vector<string> v;
+	int &amount;
+	
 	ifstream inputFile;
 	inputFile.open(inputFilePath);
 
 	while(!inputFile.eof())
 	{
 		getline(inputFile, buyerName, ';');
+		v.push_back(buyerName);
 		getline(inputFile, address, ';');
+		v.push_back(address);
 		getline(inputFile, date, '\n');
+		v.push_back(date);
 		getline(inputFile, wood.type, ':');
+		v.push_back(buyerName);
 		getline(inputFile, amountStr, ';');
 	}
 
 	amount = stoi(amountStr);
+
+	return 0;
 }
+
+
 
 /*
  * Method to compute the deliveryTime
