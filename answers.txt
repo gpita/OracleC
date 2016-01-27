@@ -1,2 +1,8 @@
 a) 2
-b) 
+b) August 24, 2015
+c) None
+d)
+e) git status displays paths that have differences between the index file and the current HEAD commit, paths that have differences between the working tree and the index file, and paths in the working tree that are not tracked by Git and git log just shows the commit logs
+f) git log main.java
+g) git log --grep="transaction"
+h) git log --author="Lauren" --after="2016-01-05" --before="2016-02-17"
