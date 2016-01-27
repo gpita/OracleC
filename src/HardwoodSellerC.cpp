@@ -4,48 +4,75 @@
 // Version     : 1
 // Copyright   : It's free
 // Description : Main class for the Hardwood Seller
+// Editor	   : Gabriela Pita
 //============================================================================
 
 #include <iostream>
+#include <fstream>
+#include <vector>
+#include <string>
+#include <iomanip>
+#include "WoodItem.cpp"
 using namespace std;
 
 int main() {
-	WoodItem wood = new WoodItem();
-	std::vector<string> v;
-	int &amount;
+	
+	string buyerName, address, date, woodType, amountStr;
+	int amount;
+
+	WoodItem Cherry = new WoodItem("Cherry", 2.5, 5.95);
+	WoodItem CurlyMaple = new WoodItem("Curly Maple", 1.5, 6.00);
+	WoodItem GenuineMahogany = new WoodItem("Genuine Mahogany", 3, 9.60);
+	WoodItem Wenge = new WoodItem("Wenge", 5, 22.35);
+	WoodItem WhiteOak = new WoodItem("White Oak", 2.3, 6.70);
+	WoodItem Sawdust = new WoodItem("Sawdust", 1, 1.5);
 	
 	ifstream inputFile;
-	inputFile.open(inputFilePath);
-
-	while(!inputFile.eof())
+	inputFile.open("order.txt");
+	
+	if(inputFile.is_open())
 	{
 		getline(inputFile, buyerName, ';');
-		v.push_back(buyerName);
 		getline(inputFile, address, ';');
-		v.push_back(address);
 		getline(inputFile, date, '\n');
-		v.push_back(date);
-		getline(inputFile, wood.type, ':');
-		v.push_back(buyerName);
-		getline(inputFile, amountStr, ';');
-	}
 
-	amount = stoi(amountStr);
+		cout << "Buyer's Name: " << buyerName << endl;
+		cout << "Address: " << address << endl;
+
+		while (!inputFile.eof()) 
+		{
+			c = inputFile.get();
+
+			while (c != ':') 
+			{
+				woodType += c;
+				c = inputFile.get();
+			}
+
+			c = inputFile.get();
+
+			while (ch != ';') 
+			{
+				amountStr += c;
+				c = inputFile.get();
+			}
+
+			amount = stoi(amountStr);
+		} 
+
+	inputFile.close();
 
 	return 0;
 }
 
-
-
 /*
  * Method to compute the deliveryTime
  */
-double deliveryTime() {
+double deliveryTime(string woodType) {
 
-	readInputFile(string);
 	double deliveryETA = 0.0;
 
-	switch wood.type
+	switch woodType
 	{
 		case "Cherry": 
 			wood.price = 5.95; wood.baseDeliveryTime = 2.5;
@@ -74,5 +101,19 @@ double deliveryTime() {
 	else if(amount > 500 && amount < 1001)
 		deliveryETA = 5.5*wood.baseDeliveryTime;
 	
+
+
 	return deliveryETA;
 }
+
+
+
+
+
+
+
+
+
+
+
+
