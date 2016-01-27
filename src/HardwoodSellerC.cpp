@@ -16,6 +16,10 @@ int main() {
 	return 0;
 }
 
+WoodItem wood = new WoodItem();
+string buyerName, address, date, amountStr;
+int amount;
+
 /*
  * Method to read the input file
  */
