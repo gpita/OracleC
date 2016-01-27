@@ -78,7 +78,7 @@ int main() {
 
 	inputFile.close();
 
-	cout << "Order total: $" << total << endl;
+	cout << "Order total: $" << setprecision(2) << fixed << total << endl;
 	cout << "Deliver Time: " << deliveryTime;
 
 	return 0;
