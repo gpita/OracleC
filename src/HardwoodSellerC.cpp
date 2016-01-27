@@ -19,8 +19,25 @@ int main() {
 /*
  * Method to read the input file
  */
-void readInputFile(string inputFilePath) {
+void readInputFile(string inputFilePath) 
+{
+	WoodItem wood = new WoodItem();
+	string buyerName, address, date, amountStr;
+	int amount;
 
+	ifstream inputFile;
+	inputFile.open(inputFilePath);
+
+	while(!inputFile.eof())
+	{
+		getline(inputFile, buyerName, ';');
+		getline(inputFile, address, ';');
+		getline(inputFile, date, '\n');
+		getline(inputFile, wood.type, ':');
+		getline(inputFile, amountStr, ';');
+	}
+
+	amount = stoi(amountStr);
 }
 
 /*
