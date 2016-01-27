@@ -2,5 +2,12 @@ Eeny, meeny, miny, moe
 Catch a tiger by the toe 
 If he hollers let him go, 
 Eeny, meeny, miny, moe
+On branch master
+Your branch is up-to-date with 'origin/master'.
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
 
-fatal: Not a git repository (or any of the parent directories): .git
+	modified:   book.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
