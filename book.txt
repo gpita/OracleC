@@ -2,3 +2,5 @@ Eeny, meeny, miny, moe
 Catch a tiger by the toe 
 If he hollers let him go, 
 Eeny, meeny, miny, moe
+
+fatal: Not a git repository (or any of the parent directories): .git
