@@ -18,7 +18,7 @@ using namespace std;
 int main() {
 	
 	string buyerName, address, date, woodType, amountStr;
-	int amount 
+	int amount;
 	double price, total = 0.0, deliveryTime = 0.0;
 	vector<WoodItem> wood;
 
