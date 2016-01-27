@@ -18,8 +18,8 @@ using namespace std;
 int main() {
 	
 	string buyerName, address, date, woodType, amountStr;
-	int amount, price;
-	char c;
+	int amount 
+	double price, total = 0.0, deliveryTime = 0.0;
 	vector<WoodItem> wood;
 
 	wood.insert(new WoodItem("Cherry", 2.5, 5.95));
@@ -40,7 +40,7 @@ int main() {
 
 		cout << "Buyer's Name: " << buyerName << endl;
 		cout << "Address: " << address << endl;
-
+		char c;
 		while (!inputFile.eof()) 
 		{
 			c = inputFile.get();
@@ -62,29 +62,24 @@ int main() {
 			amount = stoi(amountStr);
 
 			cout << "Ordered " << amount << " BF of " << woodType << " at price ";
-			switch woodType
+			for (int i = 0; i < wood.size(); ++i)
 			{
-				case "Cherry": 
-					price = 5.95; baseDeliveryTime = 2.5;
-					break;
-				case "Curly Maple": price = 6.00; baseDeliveryTime = 1.5;
-					break;
-				case "Genuine Mahogany": price = 9.60; baseDeliveryTime = 3;
-					break;
-				case "Wenge": price = 22.35; baseDeliveryTime = 5;
-					break;
-				case "White Oak": price = 6.70; baseDeliveryTime = 2.3;
-					break;
-				case "Sawdust": price = 1.5; baseDeliveryTime = 1;
-					break;
+				if(wood[i].type == woodType)
+				{
+					price = amount * wood[i].price;
+					total = total + price;
+					if(deliveryTime(amount) * wood[i].baseDeliveryTime > deliveryTime)
+						deliveryTime = deliveryTime(amount) * wood[i].baseDeliveryTime;
+				}
 			}
 
-			cout << price << endl;
+			cout << '$' << setprecision(2) << fixed << price << endl;
 		} 
 
 	inputFile.close();
 
-
+	cout << "Order total: $" << total << endl;
+	cout << "Deliver Time: " << deliveryTime;
 
 	return 0;
 }
@@ -92,37 +87,22 @@ int main() {
 /*
  * Method to compute the deliveryTime
  */
-double deliveryTime(string woodType) {
+double deliveryTime(int amount) {
 
 	double deliveryETA = 0.0;
 
 
 	if(amount > 0 && amount < 101)
-		deliveryETA = wood.baseDeliveryTime;
+		deliveryETA = 1.0;
 	else if(amount > 100 && amount < 201)
-		deliveryETA = 2.0*wood.baseDeliveryTime;
+		deliveryETA = 2.0;
 	else if(amount > 200 && amount < 301)
-		deliveryETA = 3.0*wood.baseDeliveryTime;
+		deliveryETA = 3.0;
 	else if(amount > 300 && amount < 401)
-		deliveryETA = 4.0*wood.baseDeliveryTime;
+		deliveryETA = 4.0;
 	else if(amount > 400 && amount < 501)
-		deliveryETA = 5.0*wood.baseDeliveryTime;
+		deliveryETA = 5.0;
 	else if(amount > 500 && amount < 1001)
-		deliveryETA = 5.5*wood.baseDeliveryTime;
-	
-
-
+		deliveryETA = 5.5;
 	return deliveryETA;
 }
-
-
-
-
-
-
-
-
-
-
-
-
