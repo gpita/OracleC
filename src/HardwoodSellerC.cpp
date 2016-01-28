@@ -24,12 +24,12 @@ int main() {
 	vector<WoodItem> wood;
 	ostringstrem os;
 
-	wood.insert(new WoodItem("Cherry", 2.5, 5.95));
-	wood.insert(new WoodItem("Curly Maple", 1.5, 6.00));
-	wood.insert(new WoodItem("Genuine Mahogany", 3, 9.60));
-	wood.insert(new WoodItem("Wenge", 5, 22.35));
-	wood.insert(new WoodItem("White Oak", 2.3, 6.70));
-	wood.insert(new WoodItem("Sawdust", 1, 1.50));
+	wood.push_back(new WoodItem("Cherry", 2.5, 5.95));
+	wood.push_back(new WoodItem("Curly Maple", 1.5, 6.00));
+	wood.push_back(new WoodItem("Genuine Mahogany", 3, 9.60));
+	wood.push_back(new WoodItem("Wenge", 5, 22.35));
+	wood.push_back(new WoodItem("White Oak", 2.3, 6.70));
+	wood.push_back(new WoodItem("Sawdust", 1, 1.50));
 	
 	ifstream inputFile;
 	inputFile.open("order.txt");
